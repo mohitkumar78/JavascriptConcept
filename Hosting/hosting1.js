@@ -61,4 +61,31 @@ var name = "Lokesh Prajapati"; // global variable and hoisted and initlized with
 
 })(); // Output: undefined;
 
-// when the javascript engine start execution 
+// Question 5
+
+function sayHelloWorld() {   // when sayHellowWorld() call then first function declaration is hoisted first with their defination , var sayGoodbyeWorld is also hoisted but its declartion not it initlize with undifined now hoisting is done and then javascript engine exceute function line by line and they return hoisted function 
+    /*
+    return sayGoodbyeWorld(){
+    return "Goodbye, World"
+    }
+
+    code not reached the assigment to var sayGoodbyeWorld 
+    */
+
+
+
+    var sayGoodbyeWorld = function () {
+
+        return "Hello, World!";
+
+    };
+
+    function sayGoodbyeWorld() {
+
+        return "Goodbye, World!";
+
+    }
+    return sayGoodbyeWorld();
+}
+
+console.log(sayHelloWorld()); // output " Goodbye, world"
