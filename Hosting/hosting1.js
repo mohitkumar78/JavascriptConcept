@@ -48,3 +48,17 @@ Now Inside  the foo function, function x is also hosited at top of their local s
      then return  from the function without altring the global variable x.
      That's why the output is 1 
      */
+
+// Question 4.
+
+var name = "Lokesh Prajapati"; // global variable and hoisted and initlized with "Lokesh Prajapati"
+
+(function () {// Entering the IIFE (Immediately Invoked Function Expression , there also created local scope and name is hoisted at top of the local scope and assigned value is undifined due to hosting with var declration.
+
+    console.log(name); // That's why it print undifined here 
+
+    var name = "Lokesh Prajapati";
+
+})(); // Output: undefined;
+
+// when the javascript engine start execution 
