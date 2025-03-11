@@ -72,6 +72,29 @@ function sayHelloWorld() {   // when sayHellowWorld() call then first function d
     code not reached the assigment to var sayGoodbyeWorld 
     */
 
+    return sayGoodbyeWorld();
+
+
+
+    function sayGoodbyeWorld() {
+
+        return "Goodbye, World!";
+
+    }
+    var sayGoodbyeWorld = function () {
+
+        return "Hello, World!";
+
+    };
+
+}
+
+console.log(sayHelloWorld()); // output " Goodbye, world"
+
+// Question 6
+
+function sayHelloWorld() {
+
 
 
     var sayGoodbyeWorld = function () {
@@ -88,4 +111,28 @@ function sayHelloWorld() {   // when sayHellowWorld() call then first function d
     return sayGoodbyeWorld();
 }
 
-console.log(sayHelloWorld()); // output " Goodbye, world"
+//console.log(sayHelloWorld()); // output "Hello World"
+/*
+Reason:
+
+when sayGoodbyeWorld is call javascript perform hoisting and put at top of the scope javascript see like this:
+
+function sayHelloeWorld(){
+   function sayGoodbyeWorld(){return "Goodbye, World"}       // hoisted with declaration
+   var sayGoodbyeWorld = undifined       // hoisted without declaration
+
+   Now Javascript start executing our function
+   then assign a value to var sayGoodbyeWorld = function () {
+
+        return "Hello, World!";
+
+    }; and override the them.
+
+    finally they return updated value function () {
+
+        return "Hello, World!";
+
+    };
+}
+
+*/
