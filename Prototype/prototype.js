@@ -83,3 +83,35 @@ obj4.c = 30;
 console.log(obj4.a, obj4.b, obj4.c); // 10,20,30
 console.log(obj4.hasOwnProperty("a"))// false
 console.log(obj4.hasOwnProperty("c")); // true
+
+// question 4  4️⃣ Function Prototype Modification
+
+function Car(name) {
+    this.name = name;
+}
+
+Car.prototype.getName = function () {
+    return this.name;
+};
+
+let myCar = new Car("Tesla");
+
+Car.prototype.getName = function () {
+    return "Modified: " + this.name;
+};
+
+console.log(myCar.getName()); // Modified Tesla
+// Question 5 
+function Gadget() {
+    this.type = "Electronic";
+}
+
+Gadget.prototype.brand = "Apple";
+
+let phone = new Gadget();
+phone.type = "Smartphone";
+
+console.log(phone.type); // smartphone
+console.log(phone.brand); // Apple
+console.log(Gadget.prototype.brand); // Apple
+console.log(phone.hasOwnProperty("brand")); // fasle
