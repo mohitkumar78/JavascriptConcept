@@ -83,3 +83,17 @@ function concatStr(str) {
 }
 console.log(concatStr("hello")("mohit")("singh")("bansal")());
 
+
+// Genral Partial function 
+function sum(a, b, c) {
+    return a + b + c;
+}
+
+function Partial(fn, ...fixedArgument) {
+    return function (...restArgument) {
+        return fn(...fixedArgument, ...restArgument)
+    }
+}
+
+const sum2 = Partial(sum, 4);
+console.log(sum2(3, 4));
