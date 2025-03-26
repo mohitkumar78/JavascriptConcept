@@ -97,3 +97,15 @@ function Partial(fn, ...fixedArgument) {
 
 const sum2 = Partial(sum, 4);
 console.log(sum2(3, 4));
+
+// Dom Manipulation using curying
+
+function updateHeader(id) {
+    return function (content) {
+        document.querySelector("#" + id).textContent = content
+    };
+}
+
+const update = updateHeader("heading");
+update("my name rohn")
+update("my name is rohan")
