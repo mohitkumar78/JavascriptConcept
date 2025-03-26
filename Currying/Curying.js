@@ -60,3 +60,26 @@ function Add(a) {
     }
 }
 console.log(Add(2)(3)(4)(5)());
+
+//👉 Write a function multiply that supports infinite currying and returns the product when called with ().
+
+function multi(a) {
+    return function (b) {
+        if (b) return multi(a * b);
+        return a;
+    }
+}
+console.log(multi(2)(3)(4)()); // Output: 24
+console.log(multi(5)(10)());   // Output: 50
+
+//Write a function concatStr that allows infinite currying and concatenates strings until () is called.
+
+function concatStr(str) {
+    return function (str2) {
+        if (str2) return concatStr(str + " " + str2);
+
+        return str;
+    }
+}
+console.log(concatStr("hello")("mohit")("singh")("bansal")());
+
