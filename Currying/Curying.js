@@ -48,3 +48,15 @@ console.log(evaluate("sum")(4)(2)); // 6
 console.log(evaluate("multiply")(4)(2)); //8
 console.log(evaluate("divide")(4)(2))  // 2
 console.log(evaluate("substract")(4)(2)) // 2
+
+
+// Infine curying
+
+function Add(a) {
+    return function (b) {
+        if (b) return Add(a + b);
+
+        return a;
+    }
+}
+console.log(Add(2)(3)(4)(5)());
