@@ -28,3 +28,13 @@ console.log(copy); // { name: "Mohit", details: { age: 22 } }
 copy.details.age = 23;
 
 console.log(original.details.age); // 23 (also changed in original)
+
+
+//Deep Copy
+//A deep copy in JavaScript creates a new object that is completely independent of the original one, including all nested objects. Changes in the copied object will not affect the original object.
+
+let deepcopy = JSON.parse(JSON.stringify(original));
+console.log(deepcopy);
+deepcopy.details.age = 83
+
+console.log(original.details.age)
