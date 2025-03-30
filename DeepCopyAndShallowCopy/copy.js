@@ -38,3 +38,42 @@ console.log(deepcopy);
 deepcopy.details.age = 83
 
 console.log(original.details.age)
+
+
+// deep copy without using JSON.parse(JSON.stringfy())
+
+let obj4 = {
+    name: "mohit",
+    age: 37,
+    social: {
+        facebook: {
+            ac1: "something@gmail.com",
+            ac2: "something2@gmail.com"
+        }
+        ,
+        twitter: {
+            free: {
+                ac1: "something free@gmail.com"
+            },
+            paid: {
+                ac1: "comethingpaid @gmail.com"
+            }
+        }
+    }
+}
+
+function makeDeepCopy(obj7) {
+    if (typeof obj7 !== 'object' || obj7 === null) {
+        return obj7;
+    }
+    var copiedval = Array.isArray(obj7) ? [] : {}
+
+    var keys = Object.keys(obj7);
+    for (var i = 0; i < keys.length; i++) {
+        copiedval[keys[i]] = makeDeepCopy(obj7[keys[i]]);
+    }
+    return copiedval;
+}
+var deepcopied = makeDeepCopy(obj4)
+console.log("line 78", deepcopied)
+
