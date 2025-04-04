@@ -66,3 +66,19 @@ Summary:
 Term	Meaning
 this	Who is calling the function
 .bind(obj)	Lock the this to always point to obj */
+
+
+//✅ What is .apply()?
+//.apply() is a method in JavaScript that calls a function with a given this value, and an array of arguments.
+
+
+const person2 = {
+    name: "Mohit"
+};
+
+function greet(greeting, punctuation) {
+    console.log(greeting + ", " + this.name + punctuation);
+}
+
+greet.apply(person2, ["Hello", "!"]);
+// Output: Hello, Mohit!
