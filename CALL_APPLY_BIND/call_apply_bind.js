@@ -34,3 +34,35 @@ let print = function printDetails(state, country) {
     console.log(this.name + " " + state + " " + country)
 }
 print.call(userDetail3, "Delhi", "india");
+
+//Imagine This:
+//You have a person and they have a function to say their name.
+
+const person = {
+    name: "Mohit",
+    sayHello: function () {
+        console.log("Hello, my name is " + this.name);
+    }
+};
+//Now, let’s do this:  
+const hello = person.sayHello;
+hello(); // ❌ Oops! "this" is lost — Output: "Hello, my name is undefined"
+//Why? Because this doesn’t know it's coming from person anymore.
+
+//✅ Fix with .bind():
+javascript
+Copy
+Edit
+const hello2 = person.sayHello.bind(person);
+hello2(); // ✅ "Hello, my name is Mohit"
+/*
+So, what .bind(person) did is:
+👉 “Always remember this should point to person.”
+
+Think of .bind() like this:
+You're tying the function to always remember who it belongs to.
+
+Summary:
+Term	Meaning
+this	Who is calling the function
+.bind(obj)	Lock the this to always point to obj */
